@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myblog</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+      }
+
+      li {
+          float: left;
+      }
+
+      li a {
+          display: inline-block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+      }
+
+      li a:hover {
+          background-color: #111;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul>
+      <li><%= link_to "Home", root_url%></li>
+      <li><%= link_to "Category", categories_path%></li>
+      <li><%= link_to "Posts", posts_path%></li>
+    </ul>
+    <% flash.each do |key,value| %>
+    <p> <%= value%> </p>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
