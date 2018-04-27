@@ -1,2 +1,5 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<h2><%= @category.name %></h2>
+<% @category.post.each do |post| %>
+<h5> <%= link_to post.title, post %>  </h5>
+<% end %>
+<%= link_to "Back", :back %>

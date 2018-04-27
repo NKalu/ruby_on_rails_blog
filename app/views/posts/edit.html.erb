@@ -17,7 +17,8 @@
 </p>
 
 <p>
-  <%= f.submit "Add Post"%> <%= link_to "Go Back", posts_path %>
+  <%= f.submit "Update Post"%>
+  |<%=link_to "Delete Post", @post, method: :delete, data: {confirm: "Are you sure?"} %> | <%= link_to "Go Back", post_path %>
 </p>
 
 <% end %>

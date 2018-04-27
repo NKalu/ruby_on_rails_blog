@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
+  devise_for :users
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'categories/index' => 'categories_controller#index'
   get 'post/index' => 'posts_controller#index'
   get 'home/index' => 'home_controller#index'

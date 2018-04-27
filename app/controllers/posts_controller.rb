@@ -26,14 +26,24 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
+
+    if @post.update_attribute(post_params)
+      redirect_to @post, notice: "Your post has been updated"
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path, notice: "Your post has been deleted"
   end
 
   private
   def post_params
-    params.require(:post).permit(:title,:body,:category_id,:author_id)
+    params.require(:post).permit(:title,:body,:category_id,:author_id, categories_attribute: [:name])
   end
 
 
